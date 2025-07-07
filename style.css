@@ -1,0 +1,117 @@
+/* Base body styles for font and background */
+body {
+    font-family: 'Inter', sans-serif;
+    color: #1B2A41; /* Dark Blue/Navy from palette for general text */
+    background-color: #F8F5EC; /* Off-white/Cream from palette for a clean look */
+}
+/* Heading specific font for a more elegant touch */
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+}
+/* Hero Section Styling */
+.hero-section {
+    /* Background image will now be loaded from a placeholder URL */
+    background-image: url('img/dusun.jpg'); /* Placeholder image path */
+    background-size: cover; /* Ensures the image covers the entire section */
+    background-position: center; /* Centers the background image */
+    height: 80vh; /* Sets a tall hero section for visual impact */
+    display: flex;
+    align-items: center; /* Vertically centers content */
+    justify-content: center; /* Horizontally centers content */
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden; /* Ensures content or background doesn't spill out */
+}
+/* Overlay for the hero section to improve text readability on top of the image */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4); /* Semi-transparent dark overlay */
+    z-index: 1; /* Ensures the overlay is behind the content but above the background image */
+}
+/* Content within the hero section */
+.hero-content {
+    position: relative;
+    z-index: 2; /* Ensures content is above the overlay */
+    max-width: 900px; /* Limits content width for better readability */
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle white background for text */
+    border-radius: 1.5rem; /* More rounded corners for a modern look */
+    backdrop-filter: blur(5px); /* Frosted glass effect for the background */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+}
+/* Styling for main section titles */
+.section-title {
+    font-size: 3.5rem; /* Larger headings for prominence */
+    font-weight: 800;
+    color: #1B2A41; /* Dark Blue/Navy from palette for strong contrast */
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block; /* Allows the ::after pseudo-element to be positioned relative to the text */
+}
+/* Underline effect for section titles */
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%; /* Starts from the middle */
+    bottom: -10px; /* Positions it below the text */
+    transform: translateX(-50%); /* Centers the underline */
+    width: 80px;
+    height: 4px;
+    background-color: #57A7D1; /* Medium Blue from palette for accent line */
+    border-radius: 2px;
+}
+/* Card styling for sections like "Organisasi Keremajaan" and "Galeri" */
+.card {
+    background-color: white; /* Keeping cards white for contrast */
+    border-radius: 1.5rem; /* Consistent rounded corners */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Softer, more subtle shadow */
+    overflow: hidden; /* Ensures image corners are also rounded */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+}
+.card:hover {
+    transform: translateY(-8px); /* Lifts the card slightly on hover */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15); /* More prominent shadow on hover */
+}
+/* Primary button styling */
+.btn-primary {
+    background-color: #57A7D1; /* Medium Blue from palette */
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 9999px; /* Creates a pill shape */
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effects */
+}
+.btn-primary:hover {
+    background-color: #4A8EB6; /* A slightly darker shade of Medium Blue on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+/* Input field styling (if any forms were present) */
+.input-field {
+    border: 1px solid #ddd;
+    border-radius: 0.75rem; /* Slightly rounded input fields */
+    padding: 1rem 1.25rem;
+    width: 100%;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.input-field:focus {
+    outline: none;
+    border-color: #57A7D1; /* Medium Blue from palette on focus */
+    box-shadow: 0 0 0 3px rgba(87, 167, 209, 0.3); /* Blue focus ring using RGB of Medium Blue */
+}
+
+/* Animation classes for scroll-triggered effects */
+.animate-on-scroll {
+    opacity: 0; /* Initially hidden */
+    transform: translateY(30px); /* Starts slightly below its final position */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Smooth transition */
+}
+.animate-on-scroll.is-visible {
+    opacity: 1; /* Becomes fully visible */
+    transform: translateY(0); /* Moves to its final position */
+}
