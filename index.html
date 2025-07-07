@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dusun Bogor - Selamat Datang!</title>
+    <!-- Tailwind CSS CDN for utility-first styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter for general text (a modern, legible sans-serif) and Playfair Display for headings (a more elegant serif) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* Base body styles for font and background */
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1B2A41; /* Dark Blue/Navy from palette for general text */
+            background-color: #F8F5EC; /* Off-white/Cream from palette for a clean look */
+        }
+        /* Heading specific font for a more elegant touch */
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+        /* Hero Section Styling */
+        .hero-section {
+            /* Background image will now be loaded from the 'images' folder */
+            background-image: url('img/dusun.jpg'); /* Placeholder image path */
+            background-size: cover; /* Ensures the image covers the entire section */
+            background-position: center; /* Centers the background image */
+            height: 80vh; /* Sets a tall hero section for visual impact */
+            display: flex;
+            align-items: center; /* Vertically centers content */
+            justify-content: center; /* Horizontally centers content */
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden; /* Ensures content or background doesn't spill out */
+        }
+        /* Overlay for the hero section to improve text readability on top of the image */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4); /* Semi-transparent dark overlay */
+            z-index: 1; /* Ensures the overlay is behind the content but above the background image */
+        }
+        /* Content within the hero section */
+        .hero-content {
+            position: relative;
+            z-index: 2; /* Ensures content is above the overlay */
+            max-width: 900px; /* Limits content width for better readability */
+            padding: 2rem;
+            background-color: rgba(255, 255, 255, 0.1); /* Subtle white background for text */
+            border-radius: 1.5rem; /* More rounded corners for a modern look */
+            backdrop-filter: blur(5px); /* Frosted glass effect for the background */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+        }
+        /* Styling for main section titles */
+        .section-title {
+            font-size: 3.5rem; /* Larger headings for prominence */
+            font-weight: 800;
+            color: #1B2A41; /* Dark Blue/Navy from palette for strong contrast */
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block; /* Allows the ::after pseudo-element to be positioned relative to the text */
+        }
+        /* Underline effect for section titles */
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%; /* Starts from the middle */
+            bottom: -10px; /* Positions it below the text */
+            transform: translateX(-50%); /* Centers the underline */
+            width: 80px;
+            height: 4px;
+            background-color: #57A7D1; /* Medium Blue from palette for accent line */
+            border-radius: 2px;
+        }
+        /* Card styling for sections like "Organisasi Keremajaan" and "Galeri" */
+        .card {
+            background-color: white; /* Keeping cards white for contrast */
+            border-radius: 1.5rem; /* Consistent rounded corners */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Softer, more subtle shadow */
+            overflow: hidden; /* Ensures image corners are also rounded */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+        }
+        .card:hover {
+            transform: translateY(-8px); /* Lifts the card slightly on hover */
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15); /* More prominent shadow on hover */
+        }
+        /* Primary button styling */
+        .btn-primary {
+            background-color: #57A7D1; /* Medium Blue from palette */
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 9999px; /* Creates a pill shape */
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effects */
+        }
+        .btn-primary:hover {
+            background-color: #4A8EB6; /* A slightly darker shade of Medium Blue on hover */
+            transform: translateY(-2px); /* Slight lift on hover */
+        }
+        /* Input field styling (if any forms were present) */
+        .input-field {
+            border: 1px solid #ddd;
+            border-radius: 0.75rem; /* Slightly rounded input fields */
+            padding: 1rem 1.25rem;
+            width: 100%;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .input-field:focus {
+            outline: none;
+            border-color: #57A7D1; /* Medium Blue from palette on focus */
+            box-shadow: 0 0 0 3px rgba(87, 167, 209, 0.3); /* Blue focus ring using RGB of Medium Blue */
+        }
+
+        /* Animation classes for scroll-triggered effects */
+        .animate-on-scroll {
+            opacity: 0; /* Initially hidden */
+            transform: translateY(30px); /* Starts slightly below its final position */
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Smooth transition */
+        }
+        .animate-on-scroll.is-visible {
+            opacity: 1; /* Becomes fully visible */
+            transform: translateY(0); /* Moves to its final position */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar: Sticky to the top, responsive layout -->
+    <nav class="bg-white p-4 shadow-md sticky top-0 z-50">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <!-- Logo/Site Title -->
+            <a href="#" class="text-3xl font-extrabold text-[#1B2A41] mb-4 md:mb-0">Dusun Bogor</a>
+            <!-- Navigation Links -->
+            <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-lg">
+                <a href="#beranda" class="text-gray-700 hover:text-[#57A7D1] font-medium transition duration-300 px-3 py-2 rounded-lg">Beranda</a>
+                <a href="#tentang" class="text-gray-700 hover:text-[#57A7D1] font-medium transition duration-300 px-3 py-2 rounded-lg">Tentang Kami</a>
+                <a href="#organisasi-keremajaan" class="text-gray-700 hover:text-[#57A7D1] font-medium transition duration-300 px-3 py-2 rounded-lg">Organisasi Keremajaan</a>
+                <a href="#kegiatan" class="text-gray-700 hover:text-[#57A7D1] font-medium transition duration-300 px-3 py-2 rounded-lg">Kegiatan</a>
+                <a href="#galeri" class="text-gray-700 hover:text-[#57A7D1] font-medium transition duration-300 px-3 py-2 rounded-lg">Galeri</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section: Full-width banner with welcoming message -->
+    <section id="beranda" class="hero-section">
+        <div class="hero-content animate-on-scroll">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
+                Selamat Datang di <span class="text-[#A9E4E8]">Dusun Bogor</span>
+            </h1>
+            <p class="text-xl md:text-2xl font-light mb-8 max-w-2xl mx-auto">
+                Temukan ketenangan dan keindahan alam di jantung Bogor.
+            </p>
+            <a href="#tentang" class="btn-primary text-xl">
+                Jelajahi Sekarang
+            </a>
+        </div>
+    </section>
+
+    <!-- About Us Section: Introduces Dusun Bogor with text and an image -->
+    <section id="tentang" class="py-20 bg-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="section-title mb-16 animate-on-scroll">Tentang Dusun Bogor</h2>
+            <div class="flex flex-col lg:flex-row items-center gap-12 max-w-6xl mx-auto">
+                <div class="lg:w-1/2 animate-on-scroll">
+                    <img src="img/sawah2.jpg" alt="Pemandangan Dusun Bogor" class="rounded-3xl shadow-xl w-full h-auto object-cover transform hover:scale-105 transition duration-500">
+                </div>
+                <div class="lg:w-1/2 text-left animate-on-scroll" style="transition-delay: 0.2s;">
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6 text-justify">
+                        Dusun Bogor adalah sebuah permata tersembunyi yang menawarkan ketenangan dan keindahan alam yang memukau, terletak di kawasan Bogor. Dikelilingi oleh hamparan sawah hijau, sungai yang jernih, dan udara pegunungan yang segar, dusun ini adalah destinasi sempurna untuk melarikan diri dari hiruk pikuk kehidupan kota.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6 text-justify">
+                        Masyarakat Dusun Bogor dikenal akan keramahan dan kearifan lokalnya yang masih sangat terjaga. Kehidupan di sini masih sangat kental dengan tradisi pertanian, dengan berbagai perkebunan dan hasil bumi yang menjadi mata pencarian utama. Anda dapat merasakan kehidupan pedesaan yang otentik dan berinteraksi langsung dengan warga lokal.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed text-justify">
+                        Kami mengundang Anda untuk menjelajahi kekayaan budaya dan pesona alam yang kami miliki, dari panorama pegunungan hingga kebun-kebun yang subur.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Organisasi Keremajaan Section: Details about the youth organization -->
+    <section id="organisasi-keremajaan" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="section-title mb-16 animate-on-scroll">Organisasi Keremajaan</h2>
+            <div class="max-w-4xl mx-auto text-lg text-gray-700 leading-relaxed animate-on-scroll">
+                <p class="mb-6 text-justify">
+                    Organisasi Keremajaan Dusun Bogor adalah wadah bagi para pemuda dan pemudi desa untuk berkumpul, berkreasi, dan berkontribusi positif bagi kemajuan dusun. Kami aktif dalam berbagai kegiatan sosial, budaya, dan lingkungan yang bertujuan untuk mengembangkan potensi pemuda serta mempererat tali persaudaraan.
+                </p>
+                <p class="mb-6 text-justify">
+                    Beberapa kegiatan rutin kami meliputi: kerja bakti membersihkan lingkungan, pelatihan keterampilan (misalnya kerajinan tangan, pertanian modern), acara seni dan budaya (seperti pentas seni, lomba tradisional), serta kegiatan keagamaan dan sosial lainnya. Kami percaya bahwa pemuda adalah aset berharga yang akan membawa perubahan positif bagi masa depan Dusun Bogor.
+                </p>
+                <p class="text-justify">
+                    Kami selalu terbuka untuk ide-ide baru dan partisipasi aktif dari seluruh anggota. Mari bergabung dan bersama-sama membangun Dusun Bogor yang lebih baik!
+                </p>
+            </div>
+            <!-- Grid of activity cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+                <!-- Activity Card 1 -->
+                <div class="card animate-on-scroll" style="transition-delay: 0s;">
+                    <img src="img/kerjabakti.jpg" alt="Kerja Bakti" class="w-full h-64 object-cover rounded-t-3xl">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-2">Kerja Bakti</h3>
+                        <p class="text-gray-600">Bersama membantu acara yang akan diselenggarakan di Dusun Bogor</p>
+                    </div>
+                </div>
+                <!-- Activity Card 2 -->
+                <div class="card animate-on-scroll" style="transition-delay: 0.1s;">
+                    <img src="img/kegiatan-lomba.jpg" alt="Pelatihan Keterampilan" class="w-full h-64 object-cover rounded-t-3xl">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-2">Peringatan HUT RI</h3>
+                        <p class="text-gray-600">Memeriahkan acara HUT RI bersama Dusun Bogor</p>
+                    </div>
+                </div>
+                <!-- Activity Card 3 -->
+                <div class="card animate-on-scroll" style="transition-delay: 0.2s;">
+                    <img src="img/malamtirakatan2.jpg" alt="Pentas Seni" class="w-full h-64 object-cover rounded-t-3xl">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-2">Malam Tirakatan</h3>
+                        <p class="text-gray-600">Berdoa bersama untuk Para Pahlawan terdahulu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section: Displays various images of Dusun Bogor -->
+    <section id="galeri" class="py-20 bg-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="section-title mb-16 animate-on-scroll">Galeri Dusun Bogor</h2>
+            <!-- Grid of gallery image cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Gallery Item 1: Rice Fields -->
+                <div class="card animate-on-scroll" style="transition-delay: 0s;">
+                    <img src="img/sawah2.jpg" alt="Sawah Hijau" class="w-full h-64 object-cover rounded-t-3xl">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-2">Hamparan Sawah</h3>
+                        <p class="text-gray-600">Pemandangan sawah yang membentang luas dan menyejukkan mata.</p>
+                    </div>
+                </div>
+                <!-- Gallery Item 6: Local Activities -->
+                <div class="card animate-on-scroll" style="transition-delay: 0.5s;">
+                    <img src="images/aktivitas_warga.jpg" alt="Aktivitas Warga" class="w-full h-64 object-cover rounded-t-3xl">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-2">Kehidupan Pedesaan</h3>
+                        <p class="text-gray-600">Melihat langsung aktivitas sehari-hari warga dusun yang ramah.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer: Site navigation, copyright, and policy links -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <!-- Footer Logo/Title -->
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-3xl font-extrabold text-[#A9E4E8]">Dusun Bogor</h3>
+                    <p class="text-gray-400 mt-2">Bogor</p>
+                </div>
+                <!-- Footer Navigation Links -->
+                <div class="flex flex-wrap justify-center gap-x-8 gap-y-4 text-lg">
+                    <a href="#beranda" class="text-gray-300 hover:text-white transition duration-300">Beranda</a>
+                    <a href="#tentang" class="text-gray-300 hover:text-white transition duration-300">Tentang Kami</a>
+                    <a href="#organisasi-keremajaan" class="text-gray-300 hover:text-white transition duration-300">Organisasi Keremajaan</a>
+                    <a href="#kegiatan" class="text-gray-300 hover:text-white transition duration-300">Kegiatan</a>
+                    <a href="#galeri" class="text-gray-300 hover:text-white transition duration-300">Galeri</a>
+                </div>
+            </div>
+            <hr class="border-gray-700 mb-8">
+            <p class="text-gray-400">&copy; 2025 Dusun Bogor. Hak Cipta Dilindungi.</p>
+            <div class="mt-4 space-x-6 text-sm">
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Kebijakan Privasi</a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Syarat Penggunaan</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for scroll-triggered animations using Intersection Observer
+        document.addEventListener('DOMContentLoaded', () => {
+            // Select all elements that have the 'animate-on-scroll' class
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+
+            // Options for the Intersection Observer API
+            const observerOptions = {
+                root: null, // The viewport is used as the root for observation
+                rootMargin: '0px', // No margin around the root
+                threshold: 0.1 // The callback will be executed when 10% of the target element is visible
+            };
+
+            // Callback function executed when observed elements intersect with the root
+            const observerCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // If the element is currently visible in the viewport, add the 'is-visible' class
+                        // This class triggers the CSS transition for opacity and transform
+                        entry.target.classList.add('is-visible');
+                        // Stop observing the element once it has animated to prevent re-triggering
+                        observer.unobserve(entry.target);
+                    }
+                });
+            };
+
+            // Create a new Intersection Observer instance with the defined callback and options
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+            // Loop through each element selected and start observing it
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
