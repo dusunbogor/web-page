@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Karang Taruna Dusun Bogor</title>
+  <meta name="description" content="Website Karang Taruna Dusun Bogor — ruang kolaborasi pemuda yang dinamis dan transparan." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/webp" href="file/rebog.webp">
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="container row">
+      <a class="brand" href="#">
+        <img class="logo" src="file/rebog.webp" alt="Karang Taruna Dusun Bogor" />
+        <span>Karang Taruna Dusun Bogor</span>
+      </a>
+      <div class="menu" aria-label="navigasi utama">
+        <a href="#tentang">Tentang</a>
+        <a href="#galeri">Galeri</a>
+        <a href="#tim">Struktur Organisasi</a>
+        <a href="#keuangan">Keuangan</a>
+        <a href="#berita">Berita</a>
+      </div>
+      <button class="hamb focusable" id="hamb" aria-label="Buka menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+    <!-- Drawer -->
+    <div class="drawer" id="drawer" aria-hidden="true">
+      <div class="sheet">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:.4rem">
+          <div class="brand"><div class="logo"></div><span>Menu</span></div>
+          <button class="hamb focusable" id="closeDrawer" aria-label="Tutup menu">✕</button>
+        </div>
+        <a href="#tentang" onclick="closeDrawer()">Tentang</a>
+        <a href="#galeri" onclick="closeDrawer()">Galeri</a>
+        <a href="#tim" onclick="closeDrawer()">Struktur Organisasi</a>
+        <a href="#keuangan" onclick="closeDrawer()">Keuangan</a>
+        <a href="#berita" onclick="closeDrawer()">Berita</a>
+        <a href="#gabung" onclick="closeDrawer()" class="btn btn-primary" style="margin-top:.6rem;justify-content:center">Gabung Komunitas</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="blob" aria-hidden="true"></div>
+    <div class="blob2" aria-hidden="true"></div>
+    <div class="container wrap">
+      <div>
+        <div class="eyebrow"><span class="spark"></span><span>Ruang Gerak Pemuda Dusun Bogor</span></div>
+        <h1 class="title">Berdaya, Berkarya, <span class="gradient">Bersama</span>.</h1>
+        <p class="lead">Komunitas anak muda yang bergerak di sosial, olahraga, digitalisasi UMKM, dan literasi—dengan semangat <b>Solidaritas</b> & <b>Saling Menjaga</b>.</p>
+        <div class="cta">
+          <a href="#gabung" class="btn btn-primary">Gabung Komunitas</a>
+          <a href="#keuangan" class="btn btn-ghost">Transparansi Keuangan</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- TENTANG -->
+  <section id="tentang">
+    <div class="container">
+      <h2 class="title" style="margin:.2rem 0 1rem">Tentang Kami</h2>
+      <p class="muted" style="font-size:1.05rem;line-height:1.9;text-align:justify;margin-bottom:1rem">
+        Karang Taruna Dusun Bogor adalah wadah pembinaan dan pengembangan generasi muda. Kami fokus pada penguatan karakter, peningkatan keterampilan, dan kolaborasi lintas komunitas untuk menciptakan dampak positif yang berkelanjutan. Sebagai komunitas pemuda yang bersemangat, kami menyelenggarakan berbagai inisiatif: pendampingan UMKM, olahraga pemuda, edukasi anti-korupsi, hingga literasi digital. Kami terbuka untuk kolaborasi dari siapa pun yang ingin bergerak bersama. Kami percaya perubahan dimulai dari hal sederhana: saling dukung antarwarga, gotong royong, dan keberanian mencoba hal baru untuk Dusun Bogor yang lebih maju.
+      </p>
+      <div style="display:flex;gap:.6rem;flex-wrap:wrap">
+        <span class="tag">Kolaboratif</span>
+        <span class="tag">Inklusif</span>
+        <span class="tag">Berintegritas</span>
+        <span class="tag">Digital Mindset</span>
+      </div>
+      <div class="card pad" style="margin-top:1rem">
+        <b>Moto Organisasi</b>
+        <p class="muted" style="margin:.35rem 0 0">Solidaritas • Saling Menjaga • Berkembang Bersama</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERI -->
+  <section id="galeri">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="title">Galeri</h2>
+        <span class="muted">Momen terbaik dari kegiatan kami</span>
+      </div>
+      <div class="gallery">
+        <figure class="ph g1 reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1600&auto=format&fit=crop" alt="Kegiatan pemuda di balai dusun"></figure>
+        <figure class="ph g2 reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1506097425191-7ad538b29cef?q=80&w=1600&auto=format&fit=crop" alt="Pelatihan digital untuk UMKM"></figure>
+        <figure class="ph g3 reveal"><img loading="lazy" src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=1600&auto=format&fit=crop" alt="Turnamen olahraga antar RT"></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIM -->
+  <section id="tim">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="title">Struktur Organisasi</h2>
+        <span class="muted">Struktur kepengurusan Karang Taruna Dusun Bogor</span>
+      </div>
+      <div class="card pad reveal" style="overflow-x:auto">
+        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1600&auto=format&fit=crop" alt="Struktur Organisasi" style="width:100%;max-width:900px;display:block;margin:auto">
+        <p class="muted" style="text-align:center;margin-top:.8rem">(Ganti gambar di atas dengan bagan struktur organisasi resmi Karang Taruna Dusun Bogor)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEUANGAN -->
+  <section id="keuangan">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="title">Informasi Keuangan</h2>
+        <span class="muted">Transparansi dana komunitas</span>
+      </div>
+      <div class="card pad keu-wrap reveal">
+        <p class="muted" style="margin:0">Laporan pemasukan dan pengeluaran diperbarui berkala. Tekan tombol untuk membuka spreadsheet keuangan.</p>
+        <a class="btn btn-primary" target="_blank" rel="noopener" href="https://docs.google.com/spreadsheets/d/ID-SPREADSHEET-KEUANGAN">Buka Spreadsheet</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BERITA -->
+  <section id="berita">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="title">Berita & Kegiatan</h2>
+        <span class="muted">Update dari kami dan media</span>
+      </div>
+      <div class="card pad ticker-outer">
+        <div class="ticker">
+          <a class="news card pad" href="https://contoh.link/berita1" target="_blank" rel="noopener">
+            <img src="https://images.unsplash.com/photo-1520975922284-7b683dc428c9?q=80&w=400&auto=format&fit=crop" alt="Pelatihan Canva">
+            <b>Pelatihan Canva: 30 UMKM Ikut</b>
+          </a>
+          <a class="news card pad" href="https://contoh.link/berita2" target="_blank" rel="noopener">
+            <img src="https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?q=80&w=400&auto=format&fit=crop" alt="Turnamen Voli">
+            <b>Turnamen Voli RT 01 Juara</b>
+          </a>
+          <a class="news card pad" href="https://contoh.link/berita3" target="_blank" rel="noopener">
+            <img src="https://images.unsplash.com/photo-1541534401786-2077eed87a72?q=80&w=400&auto=format&fit=crop" alt="Kerja Bakti">
+            <b>Kerja Bakti Bersih Sungai</b>
+          </a>
+          <!-- duplikasi supaya loop mulus -->
+          <a class="news card pad" href="https://contoh.link/berita1" target="_blank" rel="noopener">
+            <img src="https://images.unsplash.com/photo-1520975922284-7b683dc428c9?q=80&w=400&auto=format&fit=crop" alt="Pelatihan Canva">
+            <b>Pelatihan Canva: 30 UMKM Ikut</b>
+          </a>
+          <a class="news card pad" href="https://contoh.link/berita2" target="_blank" rel="noopener">
+            <img src="https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?q=80&w=400&auto=format&fit=crop" alt="Turnamen Voli">
+            <b>Turnamen Voli RT 01 Juara</b>
+          </a>
+          <a class="news card pad" href="https://contoh.link/berita3" target="_blank" rel="noopener">
+            <img src="https://images.unsplash.com/photo-1541534401786-2077eed87a72?q=80&w=400&auto=format&fit=crop" alt="Kerja Bakti">
+            <b>Kerja Bakti Bersih Sungai</b>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GABUNG -->
+  <section id="gabung">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="title">Gabung Komunitas</h2>
+        <span class="muted">Yuk bareng-bareng berkarya untuk Dusun Bogor</span>
+      </div>
+      <div class="card pad reveal" style="display:grid;gap:.9rem">
+        <p class="muted">Klik tombol di bawah untuk bergabung via WhatsApp. Tulis: <i>Nama – RT – Minat Divisi</i> (contoh: Sinta – RT 02 – Ekraf).</p>
+        <div>
+          <a class="btn btn-primary" target="_blank" rel="noopener" href="https://wa.me/6281234567890?text=Halo%20Karang%20Taruna%20Dusun%20Bogor%2C%20saya%20ingin%20bergabung!">Gabung via WhatsApp</a>
+          <a class="btn btn-ghost" style="margin-left:.4rem" href="mailto:karangtaruna.bogor@contoh.id">Kirim Email</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="foot">
+        <div>
+          <div class="brand"><div class="logo"></div><span>Karang Taruna Dusun Bogor</span></div>
+          <p class="muted" style="margin:.6rem 0 0">Balai Dusun Bogor, Desa Kenteng, Bandungan, Kab. Semarang</p>
+          <div class="socials" style="margin-top:.8rem">
+            <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-2C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 2A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 2C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-2A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <b>Link Cepat</b>
+          <ul style="list-style:none;padding:0;margin:.6rem 0 0;line-height:1.9">
+            <li><a href="#galeri">Galeri</a></li>
+            <li><a href="#gabung">Gabung</a></li>
+            <li><a href="#keuangan">Informasi Keuangan</a></li>
+          </ul>
+        </div>
+        <div>
+          <b>Kontak</b>
+          <ul style="list-style:none;padding:0;margin:.6rem 0 0;line-height:1.9" class="muted">
+            <li>Email: <a href="mailto:karangtaruna.bogor@contoh.id">karangtaruna.bogor@contoh.id</a></li>
+            <li>WA: <a href="https://wa.me/6281234567890" target="_blank" rel="noopener">+62 812-3456-7890</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="muted" style="margin-top:1.2rem">© <span id="y"></span> Karang Taruna Dusun Bogor. Dibuat dengan semangat pemuda ✨</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
